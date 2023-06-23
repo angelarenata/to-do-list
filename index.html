@@ -4,14 +4,67 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Lista de Tarefas</title>
+        <link href="https://fonts.googleapis.com/css2?family=Diphylleia&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     </head>
 
     <body>
         <header>
-            <h1>Lista de Tarefas</h1> 
+            <h1>Sua lista de tarefas</h1> 
+            <form id="adicionar">
+                <label for="adicione">Adicione a sua tarefa</label>
+                <input name="adicione" type="text" id="adicione" placeholder="Insira sua atividade aqui">
+                <button type="submit">
+                    <i class="fa-thin fa-plus"></i>
+                </button>
+            </form>
         </header>
+
+        <main>
+            <form id="editar-form">
+                <label for="editar-input">Editar sua tarefa</label>                
+                <input type="text" name="editar" id="editar-input" placeholder="Editar tarefa">
+                <button type="submit">
+                    <i class="fa-solid fa-check-double"></i>
+                </button>
+                <button id="botao-cancelar">Cancelar</button>
+            </form>
+
+            <form id="pesquisar">
+                <label for="pesquisar-input">Pesquisar</label>
+                <input type="text" name="pesquisar" id="pesquisar-input" placeholder="Buscar tarefa">
+                <button id="apagar">
+                    <i class="fa-solid fa-delete-left"></i>
+                </button>
+            </form>
+
+            <form id="filtro">
+                <p id="filtrar">Filtrar</p>
+                <select name="filtro" id="filtro">
+                    <option value="all">Todos</option>
+                    <option value="done">Completa</option>
+                    <option value="todo">Incompleta</option>
+                </select>                
+            </form>
+
+            <div class="lista">
+                <div class="item-lista">
+                    <p>Tarefa a fazer...</p>
+                    <button class="feito">
+                        <i class="fa-solid fa-check"></i>
+                    </button>
+                    <button class="editar-lista">
+                        <i class="fa-solid fa-pen"></i>
+                    </button>
+                    <button class="excluir">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+        </main>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     </body>
