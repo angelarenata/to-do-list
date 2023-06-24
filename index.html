@@ -10,19 +10,18 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     </head>
 
-    <body>
-        <header>
-            <h1>Sua lista de tarefas</h1> 
-            <form id="adicionar">
-                <label for="adicione">Adicione a sua tarefa</label>
-                <input name="adicione" type="text" id="adicione" placeholder="Insira sua atividade aqui">
-                <button type="submit">
+    <body style="padding: 50px;">
+        <header style="background-color: seagreen; max-width: 500px; margin: 0 auto; border-radius: 10px; padding: 20px;">
+            <h1 style="text-align: center; color: white;">Sua lista de tarefas</h1> 
+            <form id="adicionar" class="input-group">                
+                <input name="adicione" type="text" id="adicione" placeholder="Adicione a sua tarefa" class="form-control">
+                <button type="submit" class="btn btn-light"> 
                     <i class="fa-thin fa-plus"></i>
                 </button>
             </form>
         </header>
 
-        <main>
+        <!-- <section>
             <form id="editar-form">
                 <label for="editar-input">Editar sua tarefa</label>                
                 <input type="text" name="editar" id="editar-input" placeholder="Editar tarefa">
@@ -31,11 +30,13 @@
                 </button>
                 <button id="botao-cancelar">Cancelar</button>
             </form>
+        </section> -->
 
-            <form id="pesquisar">
-                <label for="pesquisar-input">Pesquisar</label>
-                <input type="text" name="pesquisar" id="pesquisar-input" placeholder="Buscar tarefa">
-                <button id="apagar">
+        <main style="border: 2px solid seagreen;  max-width: 500px; margin: 0 auto; padding: 30px; border-radius: 10px; margin-top: 20px;"> 
+            <form id="pesquisar" class="input-group">
+
+                <input type="text" name="pesquisar" id="pesquisar-input" placeholder="Buscar tarefa" class="form-control">
+                <button id="apagar" class="btn btn-light">
                     <i class="fa-solid fa-delete-left"></i>
                 </button>
             </form>
