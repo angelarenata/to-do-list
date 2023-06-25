@@ -33,37 +33,42 @@
         </section> -->
 
         <main style="border: 2px solid seagreen;  max-width: 500px; margin: 0 auto; padding: 30px; border-radius: 10px; margin-top: 20px;"> 
-            <form id="pesquisar" class="input-group">
+            <div class="d-flex justify-content-between" id="pesquisar-filtro">  
 
-                <input type="text" name="pesquisar" id="pesquisar-input" placeholder="Buscar tarefa" class="form-control">
-                <button id="apagar" class="btn btn-light">
-                    <i class="fa-solid fa-delete-left"></i>
-                </button>
-            </form>
+                <form id="pesquisar" class="input-group" style="margin-right: 20px;">
+                    <input type="text" name="pesquisar" id="pesquisar-input" placeholder="Buscar tarefa" class="form-control">
+                    <button id="apagar" class="btn btn-light">
+                        <i class="fa-solid fa-delete-left"></i>
+                    </button>
+                </form>
 
-            <form id="filtro">
-                <p id="filtrar">Filtrar</p>
-                <select name="filtro" id="filtro">
-                    <option value="all">Todos</option>
-                    <option value="done">Completa</option>
-                    <option value="todo">Incompleta</option>
-                </select>                
-            </form>
+                <form id="filtro">
+                    <select name="filtro" id="filtro" class="form-select" aria-label="Disabled select example" >
+                        <option selected>Filtrar</option>
+                        <option value="all">Todas</option>
+                        <option value="done">Completa</option>
+                        <option value="todo">Incompleta</option>
+                    </select>                
+                </form>
+            </div>
 
-            <div class="lista">
-                <div class="item-lista">
-                    <p>Tarefa a fazer...</p>
-                    <button class="feito">
+            <div id="item-lista" class="d-flex justify-content-between align-items-center bg-success p-2 text-dark bg-opacity-10" style="margin-top: 20px; border-radius: 10px;">                
+                <div id="lista-tarefas-1">
+                    <button id="feito" class="btn btn-outline-success btn-sm">
                         <i class="fa-solid fa-check"></i>
                     </button>
-                    <button class="editar-lista">
+                    <span id="texto-tarefa" style="margin-left: 10px;">Tarefa a fazer...</span>
+                </div>
+                
+                <div id="lista-tarefas-2">
+                    <button id="editar-lista" class="btn btn-outline-secondary btn-sm">
                         <i class="fa-solid fa-pen"></i>
                     </button>
-                    <button class="excluir">
+                    <button id="excluir" class="btn btn-outline-secondary btn-sm">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
-            </div>
+            </div>           
 
         </main>
 
