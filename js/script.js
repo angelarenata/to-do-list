@@ -22,15 +22,16 @@ function exibirTarefas() {
 
     listaDeTarefas.forEach((tarefa) => {
         novaTarefa = novaTarefa + `
-<div class="d-flex justify-content-between align-itens-center bg-success p-2 text-dark bg-opacity-10">
+<div class="d-flex justify-content-between align-itens-center bg-success p-2 text-dark bg-opacity-10" style="margin-top: 20px; border-radius: 10px;">
 
-
+<div>
     <button id="feito" class="btn btn-outline-success btn-sm">
         <i class="fa-solid fa-check"></i>
     </button>
 
-    <p id="texto-tarefa" style="margin-left: 10px; font-size: 14px;">${tarefa}</p>
-
+    <span id="texto-tarefa" style="margin-left: 10px; font-size: 14px;">${tarefa}</span>
+</div>
+<div>
     <button id="editar" class="btn btn-outline-warning btn-sm">
         <i class="fa-solid fa-pen"></i>
     </button>
@@ -38,7 +39,7 @@ function exibirTarefas() {
     <button id="excluir" class="btn btn-outline-danger btn-sm">
         <i class="fa-solid fa-xmark"></i>
     </button>
-
+</div>
 </div>
 
         `
