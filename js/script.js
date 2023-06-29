@@ -1,47 +1,55 @@
-const adicionar = document.querySelector("#adicionar");
 const adicionarInput = document.querySelector("#adicionar-input");
+const botaoAdicionar = document.querySelector("#botao-adicionar");
 const listaGeral = document.querySelector("#tarefas");
+
 const botaoFeito = document.querySelector("#feito");
 const editarInput = document.querySelector("#editar-form");
 
+let listaDeTarefas = []
+
 // Função
 
+function criarTarefa(){
+    listaDeTarefas.push(adicionarInput.value)
 
-const salvar = (text)  => {
-    document.getElementById('tarefas').classList.remove('d-flex');
+    exibirTarefas()
 
-    const lista = document.createElement("div");
-    lista.classList.add("d-flex");
+    adicionarInput.value =''
+} 
 
-    const botaoFeito = document.createElement("button");
-    botaoFeito.innerHTML = '<i class="fa-solid fa-check"></i>';
-    lista.appendChild(botaoFeito);
+function exibirTarefas() {
+    let novaTarefa = ''
 
-    const texto = document.createElement("h2");
-    texto.innerText = text;
-    lista.appendChild(texto);
+    listaDeTarefas.forEach((tarefa) => {
+        novaTarefa = novaTarefa + `
+<div class="d-flex justify-content-between align-itens-center bg-success p-2 text-dark bg-opacity-10">
 
-    const botaoEditar = document.createElement("button");
-    botaoEditar.classList.add("btn-outline-warning");
-    botaoEditar.innerHTML = '<i class="fa-solid fa-pen"></i>';
-    lista.appendChild(botaoEditar);
 
-    const botaoExcluir = document.createElement("button");
-    botaoExcluir.classList.add("btn-outline-danger");
-    botaoExcluir.innerHTML = '<i class="fa-solid fa-xmark"></i>';
-    lista.appendChild(botaoExcluir);
+    <button id="feito" class="btn btn-outline-success btn-sm">
+        <i class="fa-solid fa-check"></i>
+    </button>
 
-    listaGeral.appendChild(lista);
-};
+    <p id="texto-tarefa" style="margin-left: 10px; font-size: 14px;">${tarefa}</p>
+
+    <button id="editar" class="btn btn-outline-warning btn-sm">
+        <i class="fa-solid fa-pen"></i>
+    </button>
+
+    <button id="excluir" class="btn btn-outline-danger btn-sm">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+
+</div>
+
+        `
+    })
+
+    listaGeral.innerHTML = novaTarefa 
+}
 
 // Eventos
 
-adicionar.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const valorInput = adicionarInput.value;
-
-    if (valorInput) {
-        salvar(valorInput);
-    }
-});
+botaoAdicionar.addEventListener('click', function(event) {
+    event.preventDefault(); 
+    criarTarefa();
+  });

@@ -16,7 +16,7 @@
             <h1 style="text-align: center; color: white; text-shadow: 1px 1px 1px black;">Sua lista de tarefas</h1> 
             <form id="adicionar" class="input-group">                
                 <input name="adicione" type="text" id="adicionar-input" placeholder="Adicione a sua tarefa" class="form-control">
-                <button type="submit" class="btn btn-light"> 
+                <button id="botao-adicionar" type="submit" class="btn btn-light"> 
                     <i class="fa-thin fa-plus"></i>
                 </button>
             </form>
@@ -53,21 +53,7 @@
                 </form>
             </div>
 
-            <div id="tarefas" class="d-flex justify-content-between align-items-center bg-success p-2 text-dark bg-opacity-10" style="margin-top: 20px; border-radius: 10px;">                
-
-                <button id="feito" class="btn btn-outline-success btn-sm">
-                    <i class="botao fa-solid fa-check"></i>
-                </button>
-
-                <h2 id="texto-tarefa" style="margin-left: 10px; font-size: 14px;"></span>
-            
-                <button id="editar" class="btn btn-outline-warning btn-sm">
-                    <i class="fa-solid fa-pen"></i>
-                </button>
-
-                <button id="excluir" class="btn btn-outline-danger btn-sm">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
+            <div id="tarefas" style="margin-top: 20px; border-radius: 10px;">                
 
             </div>           
 
