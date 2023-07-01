@@ -20,32 +20,38 @@ function criarTarefa(){
 function exibirTarefas() {
     let novaTarefa = ''
 
-    listaDeTarefas.forEach((tarefa) => {
+    listaDeTarefas.forEach((tarefa, posicao) => {
         novaTarefa = novaTarefa + `
 <div class="d-flex justify-content-between align-itens-center bg-success p-2 text-dark bg-opacity-10" style="margin-top: 20px; border-radius: 10px;">
 
-<div>
-    <button id="feito" class="btn btn-outline-success btn-sm">
-        <i class="fa-solid fa-check"></i>
-    </button>
+    <div>
+        <button id="feito" class="btn btn-outline-success btn-sm">
+            <i class="fa-solid fa-check"></i>
+        </button>
 
-    <span id="texto-tarefa" style="margin-left: 10px; font-size: 14px;">${tarefa}</span>
-</div>
-<div>
-    <button id="editar" class="btn btn-outline-warning btn-sm">
-        <i class="fa-solid fa-pen"></i>
-    </button>
+        <span id="texto-tarefa" style="margin-left: 10px; font-size: 14px;">${tarefa}</span>
+    </div>
+    <div>
+        <button id="editar" class="btn btn-outline-warning btn-sm">
+            <i class="fa-solid fa-pen"></i>
+        </button>
 
-    <button id="excluir" class="btn btn-outline-danger btn-sm">
-        <i class="fa-solid fa-xmark"></i>
-    </button>
-</div>
+        <button id="excluir" class="btn btn-outline-danger btn-sm" onclick="deletarTarefa(${posicao})">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
 </div>
 
         `
     })
 
     listaGeral.innerHTML = novaTarefa 
+}
+
+function deletarTarefa(posicao) {
+   listaDeTarefas.splice(posicao, 1)
+
+    exibirTarefas()
 }
 
 // Eventos
