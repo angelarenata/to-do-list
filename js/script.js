@@ -10,7 +10,11 @@ let listaDeTarefas = []
 // Função
 
 function criarTarefa(){
-    listaDeTarefas.push(adicionarInput.value)
+    listaDeTarefas.push({
+        tarefa: adicionarInput.value,
+        concluida: false
+    })
+
 
     exibirTarefas()
 
@@ -20,16 +24,16 @@ function criarTarefa(){
 function exibirTarefas() {
     let novaTarefa = ''
 
-    listaDeTarefas.forEach((tarefa, posicao) => {
+    listaDeTarefas.forEach((item, posicao) => {
         novaTarefa = novaTarefa + `
-<div class="d-flex justify-content-between align-itens-center bg-success p-2 text-dark bg-opacity-10" style="margin-top: 20px; border-radius: 10px;">
+<div class="d-flex justify-content-between align-itens-center bg-success p-2 text-dark bg-opacity-10 ${item.concluida && "bg-success-subtle fw-bold"}" style="margin-top: 20px; border-radius: 10px;">
 
     <div>
-        <button id="feito" class="btn btn-outline-success btn-sm">
+        <button id="feito" class="btn btn-outline-dark btn-sm ${item.concluida && "btn btn-success"}" onclick="concluirTarefa(${posicao})">
             <i class="fa-solid fa-check"></i>
         </button>
 
-        <span id="texto-tarefa" style="margin-left: 10px; font-size: 14px;">${tarefa}</span>
+        <span id="texto-tarefa" style="margin-left: 10px; font-size: 14px;">${item.tarefa}</span>
     </div>
     <div>
         <button id="editar" class="btn btn-outline-warning btn-sm">
@@ -50,6 +54,12 @@ function exibirTarefas() {
 
 function deletarTarefa(posicao) {
    listaDeTarefas.splice(posicao, 1)
+
+    exibirTarefas()
+}
+
+function concluirTarefa(posicao) {
+    listaDeTarefas[posicao].concluida = !listaDeTarefas[posicao].concluida
 
     exibirTarefas()
 }
