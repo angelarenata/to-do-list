@@ -50,6 +50,8 @@ function exibirTarefas() {
     })
 
     listaGeral.innerHTML = novaTarefa 
+
+    localStorage.setItem('lista', JSON.stringify(listaDeTarefas))
 }
 
 function deletarTarefa(posicao) {
@@ -63,6 +65,19 @@ function concluirTarefa(posicao) {
 
     exibirTarefas()
 }
+
+function atualizarTarefas() {
+    const tarefasLocalStorage = localStorage.getItem('lista')
+
+    if (tarefasLocalStorage) {
+    listaDeTarefas = JSON.parse(tarefasLocalStorage)
+    }
+
+    exibirTarefas()
+
+}
+
+atualizarTarefas()
 
 // Eventos
 
