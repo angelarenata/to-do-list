@@ -3,13 +3,13 @@ const botaoAdicionar = document.querySelector("#botao-adicionar");
 const listaGeral = document.querySelector("#tarefas");
 
 const botaoFeito = document.querySelector("#feito");
-const editarInput = document.querySelector("#editar-form");
+const editarInput = document.querySelector("#editar");
 
 let listaDeTarefas = []
 
 // Função
 
-function criarTarefa(){
+function criarTarefa() {
     listaDeTarefas.push({
         tarefa: adicionarInput.value,
         concluida: false
@@ -36,7 +36,7 @@ function exibirTarefas() {
         <span id="texto-tarefa" style="margin-left: 10px; font-size: 14px;">${item.tarefa}</span>
     </div>
     <div>
-        <button id="editar" class="btn btn-outline-warning btn-sm">
+        <button id="editar" class="btn btn-outline-warning btn-sm onclick="editarTarefa(${posicao})">
             <i class="fa-solid fa-pen"></i>
         </button>
 
@@ -46,8 +46,8 @@ function exibirTarefas() {
     </div>
 </div>
 
-        `
-    })
+       `
+})
 
     listaGeral.innerHTML = novaTarefa 
 
@@ -64,6 +64,11 @@ function concluirTarefa(posicao) {
     listaDeTarefas[posicao].concluida = !listaDeTarefas[posicao].concluida
 
     exibirTarefas()
+}
+
+function editarTarefa() {
+
+    
 }
 
 function atualizarTarefas() {
@@ -84,4 +89,4 @@ atualizarTarefas()
 botaoAdicionar.addEventListener('click', function(event) {
     event.preventDefault(); 
     criarTarefa();
-  });
+});
