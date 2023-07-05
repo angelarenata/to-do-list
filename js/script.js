@@ -22,31 +22,36 @@ function criarTarefa() {
 } 
 
 function exibirTarefas() {
+    
     let novaTarefa = ''
 
     listaDeTarefas.forEach((item, posicao) => {
         novaTarefa = novaTarefa + `
-<div class="d-flex justify-content-between align-itens-center bg-success p-2 text-dark bg-opacity-10 ${item.concluida && "bg-success-subtle fw-bold"}" style="margin-top: 20px; border-radius: 10px;">
+<div class="d-flex justify-content-between align-itens-center bg-secondary p-2 text-dark bg-opacity-10 ${item.concluida && "bg-success-subtle fw-bold"}" style="margin-top: 20px; border-radius: 10px; line-height: 16px">
 
-    <div>
-        <button id="feito" class="btn btn-outline-dark btn-sm ${item.concluida && "btn btn-success"}" onclick="concluirTarefa(${posicao})">
+    <div style="margin: auto 0">
+        <span id="texto-tarefa-${posicao}" style="font-size: 14px; ">${item.tarefa}</span>
+        <input id="input-tarefa-${posicao}" type="text" style="display: none;" class="form-control" value="${item.tarefa}">
+
+    </div>
+
+    <div class="d-flex" style="height: 30px">
+        <button id="feito" style="margin-left: 5px" class="btn btn-outline-dark btn-sm ${item.concluida && "btn btn-success"}" onclick="concluirTarefa(${posicao})">
             <i class="fa-solid fa-check"></i>
         </button>
-
-        <span id="texto-tarefa" style="margin-left: 10px; font-size: 14px;">${item.tarefa}</span>
-    </div>
-    <div>
-        <button id="editar" class="btn btn-outline-warning btn-sm onclick="editarTarefa(${posicao})">
+        <button style="margin-left: 5px" class="btn btn-outline-warning btn-sm" onclick="editarTarefa(${posicao})">
             <i class="fa-solid fa-pen"></i>
         </button>
 
-        <button id="excluir" class="btn btn-outline-danger btn-sm" onclick="deletarTarefa(${posicao})">
+        <button id="excluir" style="margin-left: 5px" class="btn btn-outline-danger btn-sm" onclick="deletarTarefa(${posicao})">
             <i class="fa-solid fa-xmark"></i>
         </button>
     </div>
 </div>
 
        `
+
+
 })
 
     listaGeral.innerHTML = novaTarefa 
@@ -66,11 +71,6 @@ function concluirTarefa(posicao) {
     exibirTarefas()
 }
 
-function editarTarefa() {
-
-    
-}
-
 function atualizarTarefas() {
     const tarefasLocalStorage = localStorage.getItem('lista')
 
@@ -84,9 +84,38 @@ function atualizarTarefas() {
 
 atualizarTarefas()
 
+
+function editarTarefa(posicao) {
+    const spanTarefa = document.querySelector(`#texto-tarefa-${posicao}`);
+    const inputTarefa = document.querySelector(`#input-tarefa-${posicao}`);
+
+    spanTarefa.style.display = "none";
+    inputTarefa.style.display = "inline-block";
+
+    spanTarefa.style.marginRight = "10px";
+    inputTarefa.style.width = `${spanTarefa.offsetWidth}100px`;
+    
+    inputTarefa.focus();
+
+    inputTarefa.addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+            const novoTexto = inputTarefa.value;
+            if (novoTexto) {
+                listaDeTarefas[posicao].tarefa = novoTexto;
+                spanTarefa.textContent = novoTexto;
+                spanTarefa.style.display = "inline";
+                inputTarefa.style.display = "none";
+                localStorage.setItem("lista", JSON.stringify(listaDeTarefas));
+            }
+        }
+    });
+}
+
 // Eventos
 
 botaoAdicionar.addEventListener('click', function(event) {
     event.preventDefault(); 
     criarTarefa();
 });
+
+
