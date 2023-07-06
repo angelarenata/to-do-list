@@ -5,6 +5,8 @@ const listaGeral = document.querySelector("#tarefas");
 const botaoFeito = document.querySelector("#feito");
 const editarInput = document.querySelector("#editar");
 
+const botaoPesquisar = document.querySelector('#bt-pesquisar')
+
 let listaDeTarefas = []
 
 // Função
@@ -51,6 +53,7 @@ function exibirTarefas() {
 
        `
 
+    document.getElementById('background-lista').classList.remove('d-none');
 
 })
 

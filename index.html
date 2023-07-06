@@ -23,27 +23,10 @@
             </form>
         </header>
 
-        <main style="background-color:#F5F5DC; max-width: 500px; margin: 0 auto; padding: 20px; border-radius: 10px; margin-top: 20px; box-shadow: 2px 2px 1px black"> 
-            <div class="d-flex justify-content-between" id="pesquisar-filtro">  
+        <main class="d-none" id="background-lista" style="background-color:#F5F5DC; max-width: 500px; margin: 0 auto; padding: 20px; border-radius: 10px; margin-top: 20px; box-shadow: 2px 2px 1px black"> 
 
-                <form id="pesquisar" class="input-group" style="margin-right: 20px;">
-                    <input type="text" name="pesquisar" id="pesquisar-input" placeholder="Buscar tarefa" class="form-control">
-                    <button id="apagar" class="btn btn-light">
-                        <i class="fa-solid fa-delete-left"></i>
-                    </button>
-                </form>
 
-                <form id="filtro">
-                    <select name="filtro" id="filtro" class="form-select" aria-label="Disabled select example" >
-                        <option selected>Filtrar</option>
-                        <option value="all">Todas</option>
-                        <option value="done">Completa</option>
-                        <option value="todo">Incompleta</option>
-                    </select>                
-                </form>
-            </div >
-
-            <div id="tarefas" style="margin-top: 20px; ">                
+            <div id="tarefas" style="margin-top: 20px">                
 
             </div>           
 
